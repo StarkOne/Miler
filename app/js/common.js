@@ -1,7 +1,7 @@
 $(function() {
 
 	$('#my-menu').mmenu({
-		extensions: [ 'widescreen', 'theme-black', 'effect-menu-slide', 'pagedim-black' ],
+		extensions: [ 'theme-black', 'effect-menu-slide', 'pagedim-black' ],
 		navbar: {
 			title: '<img src="img/logo-1.svg" alt="logo">'
 		},
@@ -11,9 +11,10 @@ $(function() {
 	});
 	
 	var api = $('#my-menu').data('mmenu');
-	api.bind('opened', function(){
+	api.bind('open:finish', function(){
 		$('.hamburger').addClass('is-active');
-	}).bind('closed', function() {
+	});
+	api.bind('close:finish', function() {
 		$('.hamburger').removeClass('is-active');
 	});
 });
